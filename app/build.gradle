@@ -1,0 +1,145 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'dagger.hilt.android.plugin'
+apply plugin: 'kotlin-kapt'
+apply from: '../dependencies.gradle'
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.1"
+    defaultConfig {
+        applicationId "com.gibsoncodes.movieapp"
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+    buildFeatures {
+        dataBinding = true
+    }
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/ASL2.0'
+        exclude("META-INF/*.kotlin_module")
+    }
+    buildTypes {
+        debug{
+           try{
+               minifyEnabled false
+               buildConfigField "String", "BASE_URL","\"https://api.themoviedb.org/3/\""
+               buildConfigField "String", "BASE_IMAGE_URL", "\"https://image.tmdb.org/t/p\""
+               buildConfigField "String", "BASE_TRAILER_URL", "\"https://www.youtube.com/\""
+               buildConfigField "String", "API_KEY",apiKey
+               debuggable true
+           }catch(e){
+               throw e
+           }
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+ 
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.core:core-ktx:1.3.0'
+    // android jet pack
+    implementation "com.google.android.material:material:$versions.materialVersion"
+    implementation "androidx.constraintlayout:constraintlayout:$versions.constraintLayoutVersion"
+    implementation "androidx.cardview:cardview:$versions.cardViewVersion"
+    implementation "androidx.recyclerview:recyclerview:$versions.recyclerViewVersion"
+    testImplementation "androidx.arch.core:core-testing:$versions.archCompomentVersion"
+
+
+    // animations
+    implementation "jp.wasabeef:recyclerview-animators:$versions.recylerViewAnimation"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    compile "com.github.Spikeysanju:ZoomRecylerLayout:$versions.zoomRecylerLayout"
+
+    // architecture components
+    implementation "androidx.lifecycle:lifecycle-extensions:$versions.lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$versions.lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$versions.lifecycleVersion"
+
+
+
+
+
+    // dagger
+    implementation "com.google.dagger:dagger:$versions.dagger"
+    implementation "com.google.dagger:hilt-android:$versions.daggerHiltAndroidVersion"
+    implementation "com.google.dagger:hilt-android-testing:$versions.daggerHiltAndroidVersion"
+    implementation "androidx.hilt:hilt-common:$versions.daggerHiltVersion"
+    implementation "androidx.hilt:hilt-lifecycle-viewmodel:$versions.daggerHiltVersion"
+    kapt "com.google.dagger:dagger-compiler:$versions.dagger"
+    kapt "com.google.dagger:hilt-android-compiler:$versions.daggerHiltAndroidVersion"
+    kapt "androidx.hilt:hilt-compiler:$versions.daggerHiltVersion"
+    androidTestImplementation "com.google.dagger:hilt-android-testing:$versions.daggerHiltAndroidVersion"
+    kaptAndroidTest "com.google.dagger:hilt-android-compiler:$versions.daggerHiltAndroidVersion"
+
+    // network
+    implementation "com.github.skydoves:sandwich:$versions.sandwichVersion"
+    implementation "com.squareup.retrofit2:retrofit:$versions.retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-moshi:$versions.retrofitVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$versions.okhttpVersion"
+    testImplementation "com.squareup.okhttp3:mockwebserver:$versions.okhttpVersion"
+
+    // moshi
+    implementation "com.squareup.moshi:moshi-kotlin:$versions.moshiVersion"
+    implementation "com.squareup.moshi:moshi-kotlin-codegen:$versions.moshiVersion"
+
+    // coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.coroutinesVersion"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.coroutinesVersion"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$versions.coroutinesVersion"
+
+    // glide
+    implementation "com.github.bumptech.glide:glide:$versions.glideVersion"
+    implementation "com.github.florent37:glidepalette:$versions.glidePaletteVersion"
+    implementation "jp.wasabeef:glide-transformations:$versions.glideTransformations"
+    compile ("com.github.bumptech.glide:recyclerview-integration:$versions.glideRecyclerViewIntegration"){
+        transitive=false
+    }
+    kapt "com.github.bumptech.glide:compiler:$versions.glideVersion"
+    implementation "com.squareup.picasso:picasso:2.5.2"
+    // whatIf
+    implementation "com.github.skydoves:whatif:$versions.whatIfVersion"
+
+
+
+    // debugging
+    implementation "com.jakewharton.timber:timber:$versions.timberVersion"
+
+    // unit test
+    testImplementation "junit:junit:$versions.junitVersion"
+    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:$versions.mockitoKotlinVersion"
+    testImplementation "org.mockito:mockito-inline:$versions.mockitoInlineVersion"
+    testImplementation "org.robolectric:robolectric:$versions.robolectricVersion"
+    androidTestImplementation "androidx.test:core:$versions.androidxTest"
+    androidTestImplementation "com.google.truth:truth:$versions.truthVersion"
+    androidTestImplementation "androidx.test.ext:junit:$versions.androidxTestJunit"
+    androidTestImplementation "com.android.support.test:runner:$versions.androidTestRunner"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$versions.espressoVersion"
+}

@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="movieDetailsVm"
+            type="com.gibsoncodes.movieapp.ui.main.viewmodels.MoviesDetailsViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white_56"
+        android:id="@+id/detailContainerView">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white_56"
+            tools:context=".ui.details.MovieDetailsActivity">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:id="@+id/top_layout"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/movieThumbnail"
+                        android:layout_width="60dp"
+                        android:elevation="4dp"
+                        android:layout_margin="10dp"
+                        android:layout_height="60dp"
+                        android:scaleType="centerCrop"
+                        tools:src="@drawable/view_pager_pic_1"
+                        app:movieDetailsThumbnail="@{movieDetailsVm.movieDetails.backdrop_path}" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:ems="12"
+                        android:layout_marginEnd="10dp"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                        android:textSize="25sp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:text="@{movieDetailsVm.movieDetails.originalTitle}"
+                        tools:text="Fast And Furious Presents Hobbs And Shaw"
+                        android:layout_marginBottom="10dp" />
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/genre"
+                    android:layout_marginStart="25dp"
+                    android:layout_below="@id/top_layout"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginTop="10dp"
+                    android:textSize="16sp"
+                    app:movieGenre="@{movieDetailsVm.movieDetails.genres}"
+                    android:textColor="@color/black70"
+                    tools:text="Animation"
+                    android:layout_marginBottom="10dp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/runTime"
+                    android:layout_marginStart="25dp"
+                    android:layout_below="@id/genre"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginTop="10dp"
+                    android:textSize="16sp"
+                    app:moviesRuntime="@{movieDetailsVm.movieDetails.runtime}"
+                    android:textColor="@color/black70"
+                    tools:text="Movie runtime 116 . mins"
+                    android:layout_marginBottom="10dp" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/movieBackdrop"
+                    android:layout_width="400dp"
+                    android:layout_margin="15dp"
+                    android:elevation="4dp"
+                    android:layout_below="@id/runTime"
+                    android:layout_height="250dp"
+                    android:layout_marginBottom="10dp"
+                    android:scaleType="centerCrop"
+                    tools:src="@drawable/view_pager_pic_1"
+                    app:movieDetailsImage="@{movieDetailsVm.movieDetails.backdrop_path}" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="end"
+                    android:id="@+id/secondLAyout"
+                    android:layout_below="@id/movieBackdrop"
+                    android:layout_height="wrap_content">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="30dp"
+                        app:srcCompat="@drawable/rating"
+                        android:layout_marginEnd="10dp"
+                        android:layout_height="30dp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:id="@+id/voteCount"
+                        tools:text="7.4"
+                        android:layout_marginEnd="30dp"
+                        app:moviesAverageCount="@{movieDetailsVm.movieDetails.voteAverage}"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:textColor="@color/black"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="350dp"
+                    android:background="@color/white"
+                    android:layout_below="@id/secondLAyout"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    app:cardElevation="8dp"
+                    android:id="@+id/third_layout"
+                    app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.CardView"
+                    android:layout_height="200dp">
+
+                    <View
+                        android:layout_width="3dp"
+                        android:background="@drawable/genre_rectangle"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_height="65dp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginStart="35dp"
+                        android:textSize="16sp"
+                        android:gravity="center"
+                        android:textColor="@color/black70"
+                        android:layout_height="wrap_content"
+                        android:text="@string/languages" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_marginTop="50dp"
+                        android:layout_marginStart="35dp"
+                        android:textSize="16sp"
+                        android:gravity="center"
+                        tools:text="en"
+                        android:text="@{movieDetailsVm.movieDetails.originalLanguage}"
+                        android:drawablePadding="5dp"
+                        android:drawableStart="@drawable/language"
+                        android:textColor="@color/black"
+                        android:layout_height="wrap_content" />
+
+                    <View
+                        android:layout_width="3dp"
+                        android:background="@drawable/status_background"
+                        android:layout_marginTop="120dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_height="65dp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_marginTop="120dp"
+                        android:layout_marginStart="35dp"
+                        android:textSize="16sp"
+                        android:gravity="center"
+                        android:textColor="@color/black70"
+                        android:layout_height="wrap_content"
+                        android:text="@string/released" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_marginTop="150dp"
+                        android:layout_marginStart="35dp"
+                        android:textSize="16sp"
+                        android:gravity="center"
+                        tools:text="released"
+                        android:text="@{movieDetailsVm.movieDetails.status}"
+                        android:drawablePadding="5dp"
+                        android:drawableStart="@drawable/released"
+                        android:textColor="@color/black"
+                        android:layout_height="wrap_content" />
+
+                    <com.gibsoncodes.movieapp.common.CircleProgressBar
+                        android:layout_width="100dp"
+                        app:progressbarColor="@color/colorPrimary"
+                        android:layout_gravity="end"
+                        android:layout_marginEnd="30dp"
+                        android:layout_marginTop="20dp"
+                        app:progressBarThickness="4dp"
+                        app:moviesPopularityCount="@{movieDetailsVm.movieDetails.popularity}"
+                        android:layout_height="100dp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_marginTop="140dp"
+                        android:layout_marginEnd="35dp"
+                        android:textSize="18sp"
+                        android:gravity="center"
+                        android:layout_gravity="end"
+                        android:textColor="@color/black70"
+                        android:textStyle="bold"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Metacritic" />
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="350dp"
+                    android:background="@color/white"
+                    android:layout_below="@id/third_layout"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="25dp"
+                    app:cardElevation="8dp"
+                    android:layout_marginBottom="15dp"
+                    android:id="@+id/overview_layout"
+                    app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.OverviewCard"
+                    android:layout_height="280dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_marginTop="25dp"
+                            android:layout_marginStart="15dp"
+                            android:textSize="20sp"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:id="@+id/storyLineLabel"
+                            android:layout_height="wrap_content"
+                            android:text="@string/storyline" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="15dp"
+                            android:textColor="@color/black70"
+                            android:layout_marginEnd="5dp"
+                            android:id="@+id/movieOverview"
+                            android:textSize="16sp"
+                            android:gravity="center"
+                            app:overviewFormat="@{movieDetailsVm.movieDetails.overview}"
+                            tools:text="@string/movie_overviewtest"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </RelativeLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

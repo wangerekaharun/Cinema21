@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<data>
+    <variable
+        name="fab"
+        type="com.google.android.material.floatingactionbutton.FloatingActionButton" />
+</data>
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/cordMainScreen"
+    android:background="@color/white_56"
+    tools:context=".ui.main.MainScreen">
+<FrameLayout
+    android:layout_width="match_parent"
+    android:id="@+id/mainContainerView"
+    android:background="@color/white_56"
+    android:layout_height="match_parent"
+    />
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/colorPrimary"
+        app:backgroundTint="@color/colorPrimary"
+        app:fabAlignmentMode="end"
+        app:hideOnScroll="true"
+        app:elevation="4dp"
+        app:menu="@menu/movies_main_menu"
+        android:id="@+id/bottomAppBar"
+        app:fabCradleMargin="10dp"
+        app:fabAnimationMode="scale"
+        app:fabCradleRoundedCornerRadius="4dp"/>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="300dp"
+        app:cardElevation="4dp"
+        app:transformContainer="@{cordMainScreen}"
+        app:transformFab="@{fab}"
+        tools:showIn="@layout/activity_main_screen"
+        android:layout_gravity="center"
+        android:id="@+id/subCategoryCard"
+        android:visibility="gone"
+        app:cardCornerRadius="10dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="100dp"
+        app:cardBackgroundColor="@color/white"
+        android:layout_height="300dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/alien_bar" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:textColor="@color/black70"
+                android:textStyle="italic"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:text="@string/about_text" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:textColor="@color/black70"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:text="@string/created_by" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        app:layout_anchor="@id/bottomAppBar"
+        app:backgroundTint="@color/white"
+        app:borderWidth="0dp"
+        app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
+        android:id="@+id/mainScreenFab"
+        android:background="@color/white"
+        android:src="@drawable/alien_bar"
+        android:layout_height="wrap_content"/>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

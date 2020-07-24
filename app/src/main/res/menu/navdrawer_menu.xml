@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<item android:id="@+id/movies_nav"
+    android:title="@string/movies"
+    android:icon="@drawable/heart_pager"
+    app:showAsAction="always"/>
+    <item android:id="@+id/shows_nav"
+        android:title="@string/shows"
+        android:icon="@drawable/shows" />
+    <item android:id="@+id/main_nav"
+        android:title="@string/main"
+        android:icon="@drawable/ic_icons8_mummy" />
+</menu>

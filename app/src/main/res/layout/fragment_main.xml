@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+
+        <variable
+            name="mainScreenViewModel"
+            type="com.gibsoncodes.movieapp.ui.main.viewmodels.MainScreenBaseViewModel" />
+
+        <variable
+            name="moviesAdapter"
+            type="com.gibsoncodes.movieapp.ui.adapter.MoviesAdapter" />
+
+        <variable
+            name="showsAdapter"
+            type="com.gibsoncodes.movieapp.ui.adapter.ShowsAdapter" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/mainContainerView"
+        android:background="@color/white_56"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".ui.main.fragments.MainFragment">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_margin="5dp"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="25dp"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="10dp"
+                            android:layout_height="25dp"
+                            app:srcCompat="@drawable/ic_film" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:textColor="@color/black"
+                            android:textSize="18sp"
+                            android:gravity="start|center"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="10dp"
+                            android:textStyle="bold"
+                            android:text="@string/trending_movies"
+                            android:layout_height="wrap_content"
+                            tools:text="Trending movies" />
+                    </LinearLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:id="@+id/latest_movies"
+                        app:paginatedMainScreenList="@{mainScreenViewModel}"
+                        app:moviesAdapter="@{moviesAdapter}"
+                        app:moviesRvList="@{mainScreenViewModel.trendingMoviesAllDay}"
+                        android:layout_marginStart="5dp"
+                        android:layout_height="wrap_content" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="25dp"
+                            android:layout_gravity="center"
+                            android:layout_height="25dp"
+                            android:layout_marginStart="10dp"
+                            app:srcCompat="@drawable/ic_theater" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:textColor="@color/black"
+                            android:textSize="18sp"
+                            android:gravity="start|center"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="10dp"
+                            android:textStyle="bold"
+                            android:text="@string/trending_shows"
+                            android:layout_height="wrap_content"
+                            tools:text="Trending shows" />
+                    </LinearLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:id="@+id/latest_shows"
+                        app:paginatedMainScreenList="@{mainScreenViewModel}"
+                        app:moviesAdapter="@{showsAdapter}"
+                        app:showsRvList="@{mainScreenViewModel.trendingShowsAllDay}"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

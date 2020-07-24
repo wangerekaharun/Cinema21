@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">MoviesApp</string>
+    <string name="vp_label_one">Millions of movies &amp; Tv Shows to discover </string>
+    <string name="vp_label_two">Get information regarding your favorite shows</string>
+    <string name="vp_label_three">Start your journey</string>
+    <string name="get_started">explore</string>
+    <string name="test_plot_summary">The adventures of a group of explorers who make use of a newly discovered wormhole to surpass the limitations on human space travel and conquer the vast distances involved in an interstellar voyage.</string>
+    <string name="movies">movies</string>
+    <string name="shows">shows</string>
+    <string name="search">search</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="now_playing">Now Playing</string>
+    <string name="test_movies_name">Spider-Man: Homecoming</string>
+    <string name="duration_test">Adventure . 113 min</string>
+    <string name="popular">Popular</string>
+    <string name="search_movie_example">John Wick</string>
+    <string name="refresh">Refresh</string>
+    <string name="nav">Nav icon</string>
+    <string name="home">Home</string>
+    <string name="cinema21">Cinema21</string>
+    <string name="main">main screen</string>
+    <string name="trending_movies">Trending movies</string>
+    <string name="trending_shows">Trending shows</string>
+    <string name="movie_overviewtest">Raj is a rich, carefree, happy-go-lucky second generation NRI. Simran is the daughter of Chaudhary Baldev Singh, who in spite of being an NRI is very strict about adherence to Indian values. Simran has left for India to be married to her childhood fiancé. Raj leaves for India with a mission at his hands, to claim his lady love under the noses of her whole family. Thus begins a saga.</string>
+    <string name="imdb">IMDb</string>
+    <string name="Metacritic">popularity</string>
+    <string name="release_date">Release date:</string>
+    <string name="original_language">Original language:</string>
+    <string name="storyline">Storyline</string>
+    <string name="status">Status:</string>
+    <string name="languages">Original language</string>
+    <string name="released">Status</string>
+    <string name="in_production">In production</string>
+    <string name="about_text">Cinema21 is a movie app built on top of the modern android architectures. That is the repository and mvvm pattern. The app show cases the trending and popular movies and shows.</string>
+    <string name="created_by">by rui :-)</string>
+</resources>

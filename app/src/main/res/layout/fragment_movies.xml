@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+  <data>
+    <variable
+        name="adapter"
+        type="com.gibsoncodes.movieapp.ui.adapter.MoviesAdapter" />
+
+      <variable
+          name="movieVm"
+          type="com.gibsoncodes.movieapp.ui.main.viewmodels.MoviesViewModel" />
+
+      <variable
+          name="rv"
+          type="androidx.recyclerview.widget.RecyclerView" />
+  </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:id="@+id/parentContainer"
+        android:background="@color/white_56"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".ui.main.fragments.MoviesFragment">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="match_parent"
+            tools:src="@drawable/view_pager_pic3"
+            app:moviesImageBackground="@{rv}"
+            android:id="@+id/backdropBackground"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/label_layout"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_marginStart="10dp"
+                android:textSize="20sp"
+                android:id="@+id/movieCategoryText"
+                android:layout_gravity="center_horizontal"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                tools:text="Popular"
+                android:textColor="@color/white"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+  <androidx.recyclerview.widget.RecyclerView
+      android:layout_width="wrap_content"
+      app:moviesRvList="@{movieVm.popularMoviesList}"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="20dp"
+      android:background="@android:color/transparent"
+      tools:listitem="@layout/movies_item"
+      android:layout_below="@id/label_layout"
+      app:moviesAdapter="@{adapter}"
+      app:paginatedMovies="@{movieVm}"
+      android:id="@+id/movies_rv"/>
+</RelativeLayout>
+</layout>
