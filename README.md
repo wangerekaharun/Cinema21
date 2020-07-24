@@ -10,9 +10,10 @@ Cinema21 is a small demo application which consumes the api [tmdb api] (https://
 </br>
 <p align="center">
 
-<img src="https://github.com/RuitiariGibson/Cinema21/blob/master/preview/preview_1.png"/>
-<br> <img src="https://github.com/RuitiariGibson/Cinema21/blob/master/preview/preview_2.png"/> </br>
-<br> <img src="https://github.com/RuitiariGibson/Cinema21/blob/master/preview/preview_3.png"/> </br>
+<img src="https://github.com/RuitiariGibson/Cinema21/blob/master/preview/preview_4.png"/>
+<br> <img src="https://github.com/RuitiariGibson/Cinema21/blob/master/preview/preview_1.png"/> </br>
+<br> <img src="https://github.com/RuitiariGibson/Cinema21/blob/master/preview/preview_5.png"/> </br>
+<br> <img src="https://github.com/RuitiariGibson/Cinema21/blob/master/preview/preview_6.png"/> </br>
 </p>
 
 ## Build System
